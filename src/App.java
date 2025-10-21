@@ -10,6 +10,6 @@
 
 public class App {
     public static void main(String[] args) throws Exception {
-        new Writer().startWriter();
+        new Writer().writeContent("alma\nkörte\nbarack\nszilva\n");
     }
 }

@@ -8,9 +8,25 @@
 * Licenc: MIT
 */
 
-public class Writer {
-    public void startWriter() {
-        Writefile wf = new Writefile();
-        wf.writeContent("alma\nkörte\nbarack\nszilva\n");
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+
+public class Writer implements Writable {
+    @Override
+    public void writeContent(String content) {
+        try {
+            tryWriteContent(content);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
     }
+    public void tryWriteContent(String content) throws IOException {
+        FileWriter writer = new FileWriter("adat.txt", Charset.forName("utf-8"));
+        writer.write(content);
+        System.out.println("Tartalom: ");
+        System.out.println(content);
+        writer.close();
+    }
+
 }
