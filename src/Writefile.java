@@ -24,6 +24,8 @@ public class Writefile implements Writable {
     public void tryWriteContent(String content) throws IOException {
         FileWriter writer = new FileWriter("adat.txt", Charset.forName("utf-8"));
         writer.write(content);
+        System.out.println("Tartalom: ");
+        System.out.println(content);
         writer.close();
     }
 
